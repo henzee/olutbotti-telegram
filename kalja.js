@@ -22,16 +22,11 @@ const telegram = new TelegramBot(token, { polling: true });
 
 const getBeer = (message) => {
     Beer.fetchBeer().then(beer => {
-        telegram.sendMessage(message.chat.id, beer.data.name);
+        telegram.sendMessage(message.chat.id, beer.data.nameDisplay +' ('+abv+'%)');
     });
 };
 
-telegram.onText(/\Kalja/, (message) => {
-  console.log(message);
-  telegram.sendMessage(message.chat.id, 'IPA vai APA?');
-});
-
-telegram.onText(/\APA/, getBeer);
+telegram.onText(/\Kalja/, getBeer);
 
 telegram.onText(/\IPA/, (message) => {
   console.log(message);
