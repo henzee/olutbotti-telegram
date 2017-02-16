@@ -21,9 +21,9 @@ const Beer = require('./beer');
 const telegram = new TelegramBot(token, { polling: true });
 
 const getBeer = (message) => {
-    Beer.fetchBeer() => {
-        telegram.sendMessage(message.chat.id, beerForU)
-    }
+    Beer.fetchBeer().then(url => {
+        telegram.sendMessage(message.chat.id, url);
+    });
 };
 
 telegram.onText(/\Kalja/, (message) => {
@@ -31,10 +31,7 @@ telegram.onText(/\Kalja/, (message) => {
   telegram.sendMessage(message.chat.id, 'IPA vai APA?');
 });
 
-telegram.onText(/\APA/, (message) => {
-  console.log(message);
-  telegram.sendMessage(message.chat.id, 'IPA vai APA?');
-});
+telegram.onText(/\APA/, getBeer);
 
 telegram.onText(/\IPA/, (message) => {
   console.log(message);
