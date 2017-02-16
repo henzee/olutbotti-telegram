@@ -22,7 +22,7 @@ const telegram = new TelegramBot(token, { polling: true });
 
 const getBeer = (message) => {
     Beer.fetchBeer().then(beer => {
-        telegram.sendMessage(message.chat.id, beer.data.nameDisplay +' ('+abv+'%)');
+        telegram.sendMessage(message.chat.id, beer.data.nameDisplay+' ('+beer.data.abv+'%)');
     });
 };
 
