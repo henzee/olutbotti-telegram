@@ -7,8 +7,9 @@ const fetchBeer = () => {
   return axios.get(breweryapi+'/beer/random/?key='+brewtoken)
     .then((response) => {
       console.log(response.data);
-      const $ = cheerio.load(response.name);
-      return `http:${$('.cartoon img')[0].attribs['data-original']}`;
+      //const $ = cheerio.load(response.data.name);
+      //return `http:${$('.cartoon img')[0].attribs['data-original']}`;
+      return response.data.name;
     })
 };
 
