@@ -21,8 +21,8 @@ const Beer = require('./beer');
 const telegram = new TelegramBot(token, { polling: true });
 
 const getBeer = (message) => {
-    Beer.fetchBeer().then(url => {
-        telegram.sendMessage(message.chat.id, url);
+    Beer.fetchBeer().then(beer => {
+        telegram.sendMessage(message.chat.id, beer.data.name);
     });
 };
 

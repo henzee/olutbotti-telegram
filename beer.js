@@ -9,7 +9,7 @@ const fetchBeer = () => {
       console.log(response.data);
       //const $ = cheerio.load(response.data.name);
       //return `http:${$('.cartoon img')[0].attribs['data-original']}`;
-      return response.data.name;
+      return response.data;
     })
 };
 
