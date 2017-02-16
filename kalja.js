@@ -1,14 +1,15 @@
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const packageInfo = require('./package.json');
+const token = ''
 
 if (process.env.NODE && process.env.NODE.indexOf("heroku")) {
     console.log("I'm in Heroku!");
-    const token = process.env.TELEGRAM_TOKEN;
+    token = process.env.TELEGRAM_TOKEN;
     const brewtoken = process.env.BREWERYDB_TOKEN;
 }
 else {
-    const token = '357991658:AAFKTSI_v1xxOWKGVBIXynRrI-xSaFsyJrY';
+    token = '357991658:AAFKTSI_v1xxOWKGVBIXynRrI-xSaFsyJrY';
 }
 const telegram = new TelegramBot(token, { polling: true });
 
