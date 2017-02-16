@@ -5,7 +5,7 @@ const packageInfo = require('./package.json');
 const token = '357991658:AAFKTSI_v1xxOWKGVBIXynRrI-xSaFsyJrY';
 const telegram = new TelegramBot(token, { polling: true });
 
-telegram.on('Kalja', (message) => {
+telegram.onText(/\Kalja/, (message) => {
   console.log(message);
   telegram.sendMessage(message.chat.id, 'Maistuisko?');
 });
