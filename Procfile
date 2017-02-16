@@ -1,1 +1,1 @@
-web node kalja.js
+web: node kalja.js
